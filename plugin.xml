@@ -24,4 +24,65 @@
     <hook src="hooks/applyCustomConfig.js" type="after_prepare" />
     <hook src="hooks/applyCustomConfig.js" type="before_prepare" />
     <hook src="hooks/applyCustomConfig.js" type="before_compile" />
+    
+    <!-- Put your configurations below -->
+    <!--  Examples:
+	 How to add to AndroidManifest.xml
+	 NOTE: For possible manifest values see http://developer.android.com/guide/topics/manifest/manifest-intro.html
+	 
+	 <platform name="android">
+		 //These preferences are actually available in Cordova by default although not currently documented
+		 <preference name="android-minSdkVersion" value="8" />
+		 <preference name="android-maxSdkVersion" value="19" />
+		 <preference name="android-targetSdkVersion" value="19" />
+		 //custom preferences examples
+		 <preference name="android-windowSoftInputMode" value="stateVisible" />
+		 <preference name="android-installLocation" value="auto" />
+		 <preference name="android-launchMode" value="singleTop" />
+		 <preference name="android-activity-hardwareAccelerated" value="false" />
+		 <preference name="android-manifest-hardwareAccelerated" value="false" />
+		 <preference name="android-configChanges" value="orientation" />
+		 <preference name="android-theme" value="@android:style/Theme.Black.NoTitleBar" />
+		 <config-file target="AndroidManifest.xml" parent="/*">
+			 <supports-screens
+			 android:xlargeScreens="false"
+			 android:largeScreens="false"
+			 android:smallScreens="false" />
+			 <uses-permission android:name="android.permission.READ_CONTACTS" android:maxSdkVersion="15" />
+			 <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+		 </config-file>
+	 </platform>
+	 How to add to *-Info.plist
+	 <platform name="ios">
+		 <config-file platform="ios" target="*-Info.plist" parent="UISupportedInterfaceOrientations">
+			 <array>
+			 	 <string>UIInterfaceOrientationLandscapeOmg</string>
+			 </array>
+		 </config-file>
+		 <config-file platform="ios" target="*-Info.plist" parent="SomeOtherPlistKey">
+			 <string>someValue</string>
+		 </config-file>
+	 </platform>
+
+	-->
+    
+    <!-- Setting the Android app version & supported screens -->
+	<platform name="android">
+		<preference name="android-manifest/@android:versionName" value="1.0" />
+	    	<config-file target="AndroidManifest.xml" parent="/*">
+			android-manifest/@android:versionNam
+		    	<supports-screens
+			 	android:xlargeScreens="false"
+			 	android:largeScreens="true"
+			 	android:normalScreens="true"
+			 	android:smallScreens="true" />
+	    	</config-file>
+	</platform>
+	<!-- Changing the language for iOS -->
+	<platform name="ios">
+	    <config-file platform="ios" target="*-Info.plist" parent="CFBundleDevelopmentRegion">  
+	        <string>nl</string>
+	    </config-file> 
+	</platform>
+    
 </plugin>
