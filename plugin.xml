@@ -18,12 +18,6 @@
     <keywords>ecosystem:cordova,cordova,phonegap,ios,android,config,configuration,plist,manifest</keywords>
 
     <license>MIT</license>
-
-    <hook src="hooks/restoreBackups.js" type="before_prepare" />
-    <hook src="hooks/restoreBackups.js" type="before_plugin_uninstall" />
-    <hook src="hooks/applyCustomConfig.js" type="after_prepare" />
-    <hook src="hooks/applyCustomConfig.js" type="before_prepare" />
-    <hook src="hooks/applyCustomConfig.js" type="before_compile" />
     
     <!-- Put your configurations below -->
     <!--  Examples:
@@ -70,7 +64,6 @@
 	<platform name="android">
 		<preference name="android-manifest/@android:versionName" value="1.0" />
 	    	<config-file target="AndroidManifest.xml" parent="/*">
-			android-manifest/@android:versionNam
 		    	<supports-screens
 			 	android:xlargeScreens="false"
 			 	android:largeScreens="true"
@@ -84,5 +77,12 @@
 	        <string>nl</string>
 	    </config-file> 
 	</platform>
+	
+	
+    <hook src="hooks/restoreBackups.js" type="before_prepare" />
+    <hook src="hooks/restoreBackups.js" type="before_plugin_uninstall" />
+    <hook src="hooks/applyCustomConfig.js" type="after_prepare" />
+    <hook src="hooks/applyCustomConfig.js" type="before_prepare" />
+    <hook src="hooks/applyCustomConfig.js" type="before_compile" />
     
 </plugin>
